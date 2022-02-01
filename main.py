@@ -18,16 +18,6 @@ def main():
 
     sorted_genre = quick_sort(0, len(movies_by_genre) - 1, movies_by_genre)
 
-    try:
-        with open("sorted.csv", 'w') as sorted_file:
-            sorted_writer = csv.writer(sorted_file)
-            sorted_writer.writerows(sorted_genre)
-        with open("unsorted.csv", 'w') as unsorted_file:
-            unsorted_writer = csv.writer(unsorted_file)
-            unsorted_writer.writerows(movies_by_genre)
-    except csv.Error as e:
-        sys.exit('file {}, line {}: {}'.format(filename, movie_reader.line_num, e))
-
     index = random.randint(0, len(sorted_genre) - 1)
 
     accepted_inputs = [3, 4, 5, 6, 7]
@@ -37,18 +27,23 @@ def main():
     )
 
     choice = int(choice.strip())
-
+    
+    #check if user selection falls within criteria
     if choice not in accepted_inputs:
         choice = 3
 
+    #Get genre of selected index
     chosen_genre = sorted_genre[index][0]
 
+    #Filter similar genre from the array
     chosen_genre_list = list(filter(lambda mv : mv[0] == chosen_genre, sorted_genre))
 
+    #shuffle genre list to prevent similar results
     random.shuffle(chosen_genre_list)
 
     recommendations = []
 
+    #picking number of genre based on user's choice
     i = 0
     while i < choice:
         if i >= len(chosen_genre_list):
