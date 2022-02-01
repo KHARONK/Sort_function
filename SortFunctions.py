@@ -4,15 +4,13 @@
 # accessed on 01/25/22
 # licensed: none given
 # author: Adnan Aliakbar
+
 ###
 # CHANGELOG:
 # -added if __name__ == "__main__" to driver code
 ###
-# Python3 implementation of QuickSort
-
 
 # Python3 implementation of QuickSort
-
 # This Function handles sorting part of quick sort
 # start and end points to first and last element of
 # an array respectively
@@ -48,7 +46,6 @@ def partition(start, end, array):
     # Returning end pointer to divide the array into 2
     return end
 
-
 # The main function that implements QuickSort
 def quick_sort(start, end, array):
     if start < end:
@@ -62,7 +59,6 @@ def quick_sort(start, end, array):
         quick_sort(p + 1, end, array)
     return array
 
-
 def selection_sort(arr, compare):
     # Traverse through all array elements
     for i in range(len(arr)):
@@ -73,7 +69,6 @@ def selection_sort(arr, compare):
                 min_idx = j
         # Swap the found minimum element with the first element
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
-
 
 def quicksort_recursive(array):
     print(array)
