@@ -1,4 +1,3 @@
-from operator import indexOf
 import sys
 from SortFunctions import quick_sort
 import random
